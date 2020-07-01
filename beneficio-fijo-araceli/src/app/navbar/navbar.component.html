@@ -1,0 +1,57 @@
+
+<div class="jumbotron text-center">
+    <h1>Opciones</h1>
+  </div>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed">
+      <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbar">
+              <ul class="navbar-nav nav-fill w-100">
+                  <li class="nav-item">
+                      <a class="nav-link" [routerLink]="['/listar-beneficios']" (click)="show=false">Listar Beneficios</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" [routerLink]="['/crear-beneficio']" (click)="show=false">Crear Beneficio</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" [routerLink]="['/borrar-beneficio']" (click)="show=false">Eliminar Beneficio</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" [routerLink]="['/actualizar-beneficio']" (click)="show=false">Modificar Beneficio</a>
+                  </li>
+                  <li class="form-inline">
+                     <input class="form-control mr-sm-2" type="number" id="id" #id placeholder="ID" required="true">
+                     <button class="btn btn-success" [routerLink]="['/']" (click)="getBeneficio(id.value)">Buscar</button>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+  <div *ngIf="show && id.value > 0">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Fecha Alta</th>
+            <th scope="col">Fecha Expiración</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{beneficio.id}}</th>
+            <td>{{beneficio.nombre}}</td>
+            <td>{{beneficio.descripcion}}</td>
+            <td>{{beneficio.fechaAlta}}</td>
+            <td>{{beneficio.fechaExpiracion}}</td>
+            <td>{{beneficio.estado}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

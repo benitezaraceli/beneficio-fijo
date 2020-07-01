@@ -1,0 +1,28 @@
+<div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Campaña</th>
+            <th scope="col">Tipo de Beneficio</th>
+            <th scope="col">Fecha Alta</th>
+            <th scope="col">Fecha Expiración</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let beneficio of beneficios">
+          <tr>
+            <th scope="row">{{beneficio.id}}</th>
+            <td>{{beneficio.nombre}}</td>
+            <td>{{beneficio.descripcion}}</td>
+            <td>{{beneficio['campaña']}}</td>    
+            <td>{{beneficio.tipoBeneficio.nombre}}</td>
+            <td>{{beneficio.fechaAlta | date:'medium'}}</td>
+            <td>{{beneficio.fechaExpiracion | date:'medium'}}</td>
+            <td>{{beneficio.estado}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

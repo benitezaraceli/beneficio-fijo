@@ -1,0 +1,45 @@
+<div class="container">
+    <h1>Actualizar Beneficio</h1>
+    <input class="form-control mr-sm-2" type="number" id="id" #id required="true">
+    <div class="col text-center" style="padding: 15px 32px;">
+        <button class="btn btn-success" (click)="getBeneficio(id.value)">Aceptar</button>
+    </div>
+</div>
+
+<div class="container"  *ngIf="show && id.value > 0">
+    <h1>Formulario de Actualización de Beneficios</h1>
+    <form [formGroup]="updateForm" (ngSubmit)="onSaveForm()">
+      <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder={{beneficio.nombre}} required>
+        </div>
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <textarea class="form-control" id="descripcion" formControlName="descripcion" placeholder={{beneficio.descripcion}}></textarea>
+        </div>
+        <div class="form-group">
+          <label for="campaña">Campaña</label>
+          <input type="text" class="form-control" id="campaña" formControlName="campaña" placeholder="{{beneficio['campaña']}}" required>
+        </div>
+        <div class="form-group">
+          <label for="codigo">Código del Beneficio</label>
+          <input type="text" class="form-control" id="codigo" formControlName="codigoBeneficio" placeholder={{beneficio.codigoBeneficio}} required>
+        </div>
+        <div class="form-group" formGroupName="tipoBeneficio">
+            Tipo de Beneficio <br>
+          <select name="id" id="id" formControlName="id">
+            <option default disabled selected hidden>{{beneficio.tipoBeneficio.nombre}}</option>
+            <option value=1>activos</option>
+            <option value=2>pausado</option>
+            <option value=3>cancelado</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="expiracion">Expiración</label>
+          <input type="datetime-local" class="form-control" id="expiracion" formControlName="fechaExpiracion" required>
+        </div>
+        <div class="text-center" style="padding: 15px 32px;">
+            <button type="submit" class="btn btn-primary" id="enviar">Enviar</button>
+        </div>
+      </form>      
+</div>

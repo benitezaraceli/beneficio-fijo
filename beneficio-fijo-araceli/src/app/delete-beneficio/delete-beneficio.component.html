@@ -1,0 +1,53 @@
+<div class="container">
+    <h1>Eliminar Beneficio</h1>
+    <input class="form-control mr-sm-2" type="number" id="id" #id required="true">
+    <div class="col text-center" style="padding: 15px 32px;">
+    <button class="btn btn-success" (click)="getBeneficio(id.value)" (click)="openModal(deleteModal)">Aceptar</button>
+    </div>
+</div>
+
+<ng-template #deleteModal>
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title">Confirmar</h4>
+        <button type="button" class="close" (click)="closeModal(deleteModal)" data-dismiss="modal">&times;</button>
+      </div>
+
+        <table class="table">
+          <tr>
+            <th>Id</th>
+            <td>{{beneficio.id}}</td>
+          </tr>
+          <tr>
+            <th>Nombre</th>
+            <td>{{beneficio.nombre}}</td>
+          </tr>
+          <tr>
+            <th>Descripcion</th>
+            <td>{{beneficio.descripcion}}</td>
+          </tr>
+          <tr>
+            <th>Fecha de Alta</th>
+            <td>{{beneficio.fechaAlta}}</td>
+          </tr>
+          <tr>
+            <th>Fecha de expiración</th>
+            <td>{{beneficio.fechaExpiracion}}</td>
+          </tr>
+          <tr>
+            <th>Estado</th>
+            <td>{{beneficio.estado}}</td>
+          </tr>
+        </table>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="deleteBeneficio(id.value, deleteModal)" (click)="id.value=''" data-dismiss="modal">Aceptar</button>
+        <button type="button" class="btn btn-danger" (click)="closeModal(deleteModal)" data-dismiss="modal">Cancelar</button>
+      </div>
+
+    </div>
+  </div>
+
+</ng-template>

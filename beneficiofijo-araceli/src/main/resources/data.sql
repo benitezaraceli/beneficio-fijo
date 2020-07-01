@@ -1,0 +1,2 @@
+INSERT INTO tbl_beneficio (id, nombre, cantidad_items, estado_beneficio) VALUES (2, 'beneficio 2', 1, 'Activo');
+INSERT INTO tbl_beneficio (id, nombre, cantidad_items, estado_beneficio) VALUES (1, 'beneficio 1', 1, 'Activo');

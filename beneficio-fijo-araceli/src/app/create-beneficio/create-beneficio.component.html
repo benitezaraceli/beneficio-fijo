@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Formulario de Creación de Beneficios</h1>
+    <form [formGroup]="createForm" (ngSubmit)="onSaveForm()">
+      <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <textarea class="form-control" id="descripcion" formControlName="descripcion"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="campaña">Campaña</label>
+          <input type="text" class="form-control" id="campaña" formControlName="campaña" required>
+        </div>
+        <div class="form-group">
+          <label for="codigo">Código del Beneficio</label>
+          <input type="text" class="form-control" id="codigo" formControlName="codigoBeneficio" required>
+        </div>
+        <div class="form-group" formGroupName="tipoBeneficio">
+            Tipo de Beneficio <br>
+          <select name="id" id="id" formControlName="id" >
+            <option value=1>activos</option>
+            <option value=2>pausado</option>
+            <option value=3>cancelado</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="expiracion">Expiracion</label>
+          <input type="date" class="form-control" id="expiracion" formControlName="fechaExpiracion" required>
+        </div>
+        <div class="col text-center">
+            <button type="submit" class="btn btn-primary" [disabled]="!createForm.valid" id="enviar">Enviar</button>
+        </div>
+      </form>      
+</div>
